@@ -34,7 +34,8 @@ def Fibbonaccibynumber(n):
 
 
 
-
+def swap(xl,xu):
+    return xu,xl
 
 
 def FibMinimization(A1,B1, tolerance=None, N=None):
@@ -69,35 +70,20 @@ def FibMinimization(A1,B1, tolerance=None, N=None):
             xl=A1+L2star
             fl = Fexample(xl)
             if xl > xu:
-                swap = xl
-                xl = xu
-                xu = swap
-                swap = fl
-                fl = fu
-                fu = swap
+                xl,xu=swap(xl,xu)
+                fl,fu=swap(fl,fu)
+
         elif(fl<fu):
             B1=xu
             L2star = (Sequence[N - J - 2] / Sequence[N - 1]) * L
             xu=B1-L2star
             fu = Fexample(xu)
             if xl > xu:
-                swap = xl
-                xl = xu
-                xu = swap
-                swap=fl
-                fl=fu
-                fu=swap
+                xl, xu = swap(xl, xu)
+                fl, fu = swap(fl, fu)
         J+=1
 
 
     return xl,xu,fl,fu
-
-
-
-
-
-#  Frame work:
-#  First is to initialize and generate the fibonacci sequenc
-# then
 
 print(FibMinimization(-5,15,N=7))
