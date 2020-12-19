@@ -3,7 +3,7 @@ from math import *
 def F(x1,x2):
     return 100*(x2-x1)**2+(1-x1)**2
 def Fexample(x):
-    return x**2
+    return 0.65-(0.75/(1+x**2))-0.65*x*atan(1/x)
 
 def Fibbonacci(n):
     fib=[]
@@ -36,6 +36,12 @@ def Fibbonaccibynumber(n):
 
 def swap(xl,xu):
     return xu,xl
+def swaplarger(xl,xu,fl,fu):
+
+    if xl > xu:
+        xl, xu = swap(xl, xu)
+        fl, fu = swap(fl, fu)
+    return xl,xu,fl,fu
 
 
 def FibMinimization(A1,B1, tolerance=None, N=None):
@@ -69,18 +75,14 @@ def FibMinimization(A1,B1, tolerance=None, N=None):
             L2star = (Sequence[N - J - 2] / Sequence[N - 1]) * L
             xl=A1+L2star
             fl = Fexample(xl)
-            if xl > xu:
-                xl,xu=swap(xl,xu)
-                fl,fu=swap(fl,fu)
+            xl,xu,fl,fu=swaplarger(xl,xu,fl,fu)
 
         elif(fl<fu):
             B1=xu
             L2star = (Sequence[N - J - 2] / Sequence[N - 1]) * L
             xu=B1-L2star
             fu = Fexample(xu)
-            if xl > xu:
-                xl, xu = swap(xl, xu)
-                fl, fu = swap(fl, fu)
+            xl,xu,fl,fu=swaplarger(xl,xu,fl,fu)
         J+=1
 
 
