@@ -36,8 +36,6 @@ def GenerateQuadratic(t):
     f_B=F(B)
     f_C=F(C)
 
-
-
     if (f_1>f_A):
         f_C=f_1
         f_B=F(t/2)
@@ -46,14 +44,6 @@ def GenerateQuadratic(t):
         f_C=f_1
         f_B=F(t/2)
         Lambda_star=lambdastar(f_A,f_B,f_C,t/2)
-
-
-
-
-
-
-
-
     a=f_A
     b=(4*f_B-3*f_A-f_C)/2*t
     c=(f_C+f_A-2*f_B)/(2*(t**2))
