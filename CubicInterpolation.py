@@ -22,7 +22,7 @@ def ObjFunctionGradient(Lambda,s,xi):
     # s=s/np.linalg.norm(s,ord=1)
     gradf=Gradient(s,xi)
     s=np.asarray(s).reshape(2,1)
-    s=s/np.linalg.norm(s,ord=1)
+    s=s/np.linalg.norm(s,ord=2)
     gradient=s.T*gradf(Lambda)
     return gradient
     # return gradf(Lambda)
