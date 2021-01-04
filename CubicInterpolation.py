@@ -127,11 +127,11 @@ def CubicInterpolation(t,s,xi):
         while gradient(t)<0:
             t=2*t
             # print(grad)
-    else:
-        while gradient(t)<0:
+    elif gradient(0)>0:
+        while gradient(t)>0:
             t=2*t
     return generateCubic(s,xi,t)
 
-print(CubicInterpolation(t,s,xi))
+# print(CubicInterpolation(t,s,xi))
 
 # There is a defficiency here that if the minimum in the negative portion, so I need to check right and left.?????
