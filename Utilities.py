@@ -33,8 +33,15 @@ def Plot3D(X,Y,Z):
 
     plt.show()
 
-def Hessian(f,x1,x2):
+# def Hessian(f,x1,x2):
+#     # H.subs({x1 :1/sqrt(3),x2:1/sqrt(3)}
+#     H=hessian(f ,(x1,x2))
+#     return lambdify((x1,x2), H, modules='numpy')
+def Hessian(f):
     # H.subs({x1 :1/sqrt(3),x2:1/sqrt(3)}
+    x1,x2=symbols('x1 x2')
+    # print(f)
+    f=sp.Matrix([f])
     H=hessian(f ,(x1,x2))
     return lambdify((x1,x2), H, modules='numpy')
 
@@ -52,12 +59,8 @@ def OFLambda(s,xi):
     Xi_1=xi+Lambda*s
     x1,x2=symbols('x1 x2')
     f=objFunction(Xi_1[0],Xi_1[1])
-
-    
-    
-    
-
     return lambdify((Lambda), f, modules='numpy')
+    
 
 # s=np.array([[1],[1]])
 # xi=np.array([[0],[0]])
