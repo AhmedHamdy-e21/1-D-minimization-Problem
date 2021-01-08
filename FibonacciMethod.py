@@ -1,9 +1,12 @@
 #https://www.youtube.com/watch?v=GAafWFRGP7k&ab_channel=OscarVeliz
 from math import *
 def F(x1,x2):
-    return 100*(x2-x1)**2+(1-x1)**2
+    #return 100*(x2-x1)**2+(1-x1)**2
+    return  100*((x2-(x1**2))**2)+(1-x1)**2
+## Here define the functino OF lambda 
 def Fexample(x):
-    return 0.65-(0.75/(1+x**2))-0.65*x*atan(1/x)
+    #return 0.65-(0.75/(1+x**2))-0.65*x*atan(1/x)
+    return  100*((x2-(x1**2))**2)+(1-x1)**2
 
 def Fibbonacci(n):
     fib=[]

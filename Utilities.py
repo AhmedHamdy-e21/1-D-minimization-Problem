@@ -7,6 +7,22 @@ import sympy as sp
 from sympy import *
 import math 
 
+def Plot(ihist,OFhist,X,Y,i):
+    """
+    docstring
+    """
+    fig= plt.figure(i)
+    ax=fig.add_subplot(111)
+    ax.plot(ihist,OFhist,'r-',label="fmax")
+    ax.plot(ihist,OFhist,'go',label="fmax")
+    
+    ax.set_xlabel(X)
+    ax.set_ylabel(Y)
+    plt.savefig(str(i)+'CentralPath.png')
+    plt.savefig(str(i)+'CentralPath.pdf')
+
+    pass
+
 def objFunction(x1,x2):
     return 100*((x2-(x1**2))**2)+(1-x1)**2
     # return x1-x2+2*x1**2+2*x1*x2+x2**2
